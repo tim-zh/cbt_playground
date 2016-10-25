@@ -8,8 +8,37 @@
   <title>CBT</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    hr {
-      border-bottom: #fff solid 1px;
+    button, #popup div:first-child {
+      border: transparent solid 0.1em !important;
+    }
+    button:hover, #popup div:first-child:hover {
+      background: #002B36;
+      border: #fff solid 0.1em !important;
+    }
+
+    #popup div:first-child:hover {
+      background: #073642;
+    }
+
+    #popup div:first-child {
+      background: #dc322f;
+    }
+
+    input[type="checkbox"] + label:hover:before {
+      background-color: #dc322f;
+    }
+
+    input[type="checkbox"] + label:hover:after {
+      border-color: #dc322f;
+    }
+
+    #popup tr:first-child {
+      background: #fff;
+      color: #002B36;
+    }
+
+    #popup tr:first-child:hover {
+      color: #002B36;
     }
   </style>
 </head>
