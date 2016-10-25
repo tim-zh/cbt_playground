@@ -10,7 +10,7 @@ body {
   color: #073642;
 }
 
-::selection, ::-moz-selection {
+::selection {
   background-color: #fff;
   color: #073642;
 }
