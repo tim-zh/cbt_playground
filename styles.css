@@ -1,3 +1,7 @@
+* {
+  outline: none;
+}
+
 body {
   font-family: 'proxima nova', sans-serif;
   font-size: 2em;
@@ -60,7 +64,6 @@ input[type="text"] {
   color: #fff;
   border: none;
   font-size: 1em;
-  outline: none;
 }
 
 input[type="checkbox"] {
