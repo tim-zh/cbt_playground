@@ -34,11 +34,12 @@ button, .small-btn {
   background: #dc322f;
   color: #fff;
   font-size: 1em;
-  padding: 0.3em;
-  border: none;
+  padding: 0.2em;
+  border: transparent solid 0.1em;
   border-radius: 1em;
   text-transform: uppercase;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .small-btn {
@@ -46,8 +47,14 @@ button, .small-btn {
   padding: 0 1em;
 }
 
+.link-btn:hover {
+  color: #dc322f;
+  cursor: pointer;
+}
+
 button:hover {
-  background: #9b2e2b;
+  background: #073642;
+  border: #fff solid 0.1em;
 }
 
 button:active {
@@ -55,14 +62,16 @@ button:active {
 }
 
 button:disabled {
-  background: transparent;
+  background: #073642;
   cursor: default;
+  border-color: transparent;
 }
 
 input[type="text"] {
   background: #073642;
   color: #fff;
   border: none;
+  width: 33%;
   font-size: 1em;
 }
 
@@ -84,7 +93,7 @@ input[type="checkbox"] + label:before, input[type="checkbox"] + label:after {
   position: absolute;
   left: 0;
   height: 0.8em;
-  transition: all .1s;
+  transition: all .2s;
 }
 
 input[type="checkbox"] + label:before {
@@ -99,21 +108,21 @@ input[type="checkbox"] + label:after {
   box-sizing: border-box;
 }
 
-input[type="checkbox"] + label:hover:before {
-  background-color: #9b2e2b;
+input[type="checkbox"] + label:hover:before, input[type="checkbox"]:checked + label:before {
+  background-color: #dc322f;
 }
 
 input[type="checkbox"] + label:hover:after {
-  border-color: #9b2e2b;
-}
-
-input[type="checkbox"]:checked + label:before {
-  background: #dc322f;
+  border-color: #dc322f;
 }
 
 input[type="checkbox"]:checked + label:after {
   left: 0.6em;
   border-color: #dc322f;
+}
+
+.stroke {
+  text-shadow: 0 1px 0 #002B36, 0 -1px 0 #002B36, 1px 0 0 #002B36, -1px 0 0 #002B36;
 }
 
 .container {
@@ -139,6 +148,7 @@ button, .entry {
   left: 0;
   right: 0;
   margin: 0 auto;
+  border: #002B36 solid 0.5em;
   background: #073642;
   width: 84%;
   max-height: 80%;
@@ -149,17 +159,15 @@ button, .entry {
 }
 
 #popup div:first-child {
-  background: #9b2e2b;
   position: fixed;
   padding: 0 0.2em;
-  margin: 0.3em;
-  border-radius: 1em;
   text-align: right;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 #popup div:first-child:hover {
-  background: #dc322f;
+  color: #dc322f;
 }
 
 #popup table {
@@ -181,7 +189,7 @@ button, .entry {
 }
 
 #popup tr:hover {
-  color: #27b3d9;
+  color: #dc322f;
 }
 
 #popup tr:nth-child(even) {
@@ -189,10 +197,15 @@ button, .entry {
 }
 
 #popup tr:first-child {
-  background: #000;
+  background: #fff;
+  color: #002B36;
   cursor: default;
 }
 
 #popup tr:first-child:hover {
-  color: #fff;
+  color: #002B36;
+}
+
+#div-create, #div-copy {
+  display: none;
 }

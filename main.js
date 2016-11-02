@@ -1,7 +1,11 @@
 Notification.requestPermission();
 
-$.get("/api/cwd").done(cwd => {
-  $("#cwd").append(cwd[0]);
+let projectDir;
+let cwd = $("#cwd");
+
+$.get("/api/cwd").done(path => {
+  cwd.append(path[0]);
+  projectDir = cwd.html();
 }).fail(e => notifyFail(e));
 
 document.body.onkeydown = function (event) {
@@ -9,9 +13,41 @@ document.body.onkeydown = function (event) {
     hidePopup();
 };
 
-$("#create-project")[0].disabled = false;
+["#create-project", "#btn-create", "#btn-copy"].forEach(id => { $(id)[0].disabled = false; });
+
+$("#btn-copy")[0].style.width = $("#btn-create")[0].offsetWidth + "px";
 
 let dependencies = [];
+
+function updateProjectName(x) {
+  cwd.html(projectDir + (x ? "/" + x : ""));
+}
+
+function setProjectCreate() {
+  var create = $("#div-create");
+  var copy = $("#div-copy");
+  create.show();
+  copy.hide();
+
+  var createBtn = $("#btn-create");
+  var copyBtn = $("#btn-copy");
+  createBtn.blur();
+  createBtn[0].disabled = true;
+  copyBtn[0].disabled = false;
+}
+
+function setProjectCopy() {
+  var create = $("#div-create");
+  var copy = $("#div-copy");
+  copy.show();
+  create.hide();
+
+  var createBtn = $("#btn-create");
+  var copyBtn = $("#btn-copy");
+  copyBtn.blur();
+  copyBtn[0].disabled = true;
+  createBtn[0].disabled = false;
+}
 
 function getFlags() {
   return "readme/" + $("#readme-flag")[0].checked
@@ -35,7 +71,7 @@ function createProject() {
   }).done(() => {
     notify("Done.");
   }).fail(e =>
-    notifyFail(e)
+      notifyFail(e)
   ).always(() => {
     button.innerHTML = buttonText;
     button.disabled = false;

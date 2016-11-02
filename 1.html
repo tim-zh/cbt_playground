@@ -7,38 +7,53 @@
   <meta name="author" content="tim-zh">
   <title>CBT</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="jquery-3.1.1.min.js"></script>
-  <script src="jquery.mockjax.min.js"></script>
-  <script src="mocks.js"></script>
-  <script src="main.js"></script>
 </head>
 <body>
 <div id="popup">
-  <div onclick="hidePopup()">×</div>
+  <div class="stroke" onclick="hidePopup()">×</div>
   <table id="popup-table"></table>
 </div>
 <div class="container">
 
   <h1>CBT bootstrap</h1>
 
-  <div id="cwd" class="entry"><span>current dir:</span> </div>
-  <div class="entry"><input type="text" id="name" placeholder="project name"></div>
-  <div class="entry"><input type="text" id="package" placeholder="default package"></div>
+  <button class="small-btn" onclick="setProjectCreate()" id="btn-create">create from scratch</button>
+  or
+  <button class="small-btn" onclick="setProjectCopy()" id="btn-copy">copy an example</button>
   <hr>
 
-  <div class="entry"><input type="text" id="query" placeholder="add maven dependency" onkeyup="handleSearchInput(event)"></div>
-  <button class="small-btn" onclick="search()">search</button>
-  <div id="dependencies"></div>
-  <hr>
+  <div id="cwd" class="entry"><span>project location:</span> </div>
 
-  <input type="checkbox" id="readme-flag"><label for="readme-flag">readme.md</label>
-  <input type="checkbox" id="dotty-flag"><label for="dotty-flag">dotty</label>
-  <input type="checkbox" id="uberJar-flag"><label for="uberJar-flag">uber jar</label>
-  <input type="checkbox" id="wartremover-flag"><label for="wartremover-flag">wartremover</label>
-  <hr>
+  <div id="div-create">
+    <div class="entry"><input type="text" id="name" placeholder="project name" onkeyup="updateProjectName(this.value)"></div>
+    <div class="entry"><input type="text" id="package" placeholder="default package"></div>
+    <hr>
 
-  <button id="create-project" onclick="createProject()">create project</button>
+    <div class="entry"><input type="text" id="query" placeholder="add maven dependency" onkeyup="handleSearchInput(event)"></div>
+    <button class="small-btn" onclick="search()">search</button>
+    <div id="dependencies"></div>
+    <hr>
+
+    <input type="checkbox" id="readme-flag"><label for="readme-flag">readme.md</label>
+    <input type="checkbox" id="dotty-flag"><label for="dotty-flag">dotty</label>
+    <input type="checkbox" id="uberJar-flag"><label for="uberJar-flag">uber jar</label>
+    <input type="checkbox" id="wartremover-flag"><label for="wartremover-flag">wartremover</label>
+    <hr>
+
+    <button id="create-project" onclick="createProject()">create project</button>
+  </div>
+
+  <div id="div-copy">
+    select an example:
+    <div class="link-btn">dotty</div>
+    <div class="link-btn">uber-jar</div>
+    <div class="link-btn">wartremover</div>
+  </div>
 
 </div>
+<script src="jquery-3.1.1.min.js"></script>
+<script src="jquery.mockjax.min.js"></script>
+<script src="mocks.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
