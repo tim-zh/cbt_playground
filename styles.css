@@ -30,12 +30,16 @@ hr {
   border-bottom: transparent solid 1px;
 }
 
+pre {
+  margin: 0 0 1em 0;
+}
+
 button, .small-btn {
   background: #dc322f;
   color: #fff;
   font-size: 1em;
   padding: 0.2em;
-  border: transparent solid 0.1em;
+  border: none;
   border-radius: 1em;
   text-transform: uppercase;
   cursor: pointer;
@@ -53,8 +57,8 @@ button, .small-btn {
 }
 
 button:hover {
-  background: #073642;
-  border: #fff solid 0.1em;
+  background: #fff;
+  color: #002B36;
 }
 
 button:active {
@@ -63,8 +67,8 @@ button:active {
 
 button:disabled {
   background: #073642;
+  color: #fff;
   cursor: default;
-  border-color: transparent;
 }
 
 input[type="text"] {
@@ -153,7 +157,7 @@ button, .entry {
   background: #073642;
   width: 84%;
   max-height: 80%;
-  overflow-y: scroll;
+  overflow-y: auto;
   text-align: center;
   display: none;
   z-index: 2;
@@ -207,6 +211,51 @@ button, .entry {
   color: #002B36;
 }
 
-#div-create, #div-copy {
+#flow-create, #flow-copy {
   display: none;
+}
+
+#example-browser {
+  width: 100%;
+  float: left;
+}
+
+#file-browser {
+  overflow-x: auto;
+  padding-right: 0.4em;
+  float: left;
+  max-width: 30%;
+}
+
+#code-browser {
+  background: #073642;
+  font-size: 1.2rem;
+  text-align: left;
+  padding: 0.4em;
+  overflow-x: auto;
+  max-height: 100%;
+}
+
+.browser-node {
+  font-size: 1.2rem;
+  text-align: left;
+  line-height: 1.2em;
+  background: #002B36;
+  padding: 0.2em 0 0 0.2em;
+}
+
+.browser-node > div {
+  margin-left: 2em;
+}
+
+.file-node {
+  cursor: pointer;
+}
+
+.file-node:hover, .selected-node {
+  color: #dc322f;
+}
+
+.even-node {
+  background: #073642;
 }
