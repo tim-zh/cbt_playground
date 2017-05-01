@@ -215,9 +215,14 @@ let Examples = {
         ajax("/example/file", {path: node.path}).done(data => {
           var codeBrowser = $("#code-browser");
           codeBrowser.show();
-          codeBrowser.html(data);
+          codeBrowser.html(node.name.endsWith(".md") ? data : ("<pre><code>" + data + "</code></pre>"));
+          let lang = node.name.substring(node.name.lastIndexOf(".") + 1);
+          codeBrowser.find("code").addClass(lang);
+          $("pre code").each((i, block) => hljs.highlightBlock(block));
         });
       });
     }
+    if (node.name.toLowerCase() == "readme.md")
+      div.click();
   }
 };

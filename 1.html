@@ -7,6 +7,7 @@
   <meta name="author" content="tim-zh">
   <title>CBT</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="highlight/hljs-cbt-theme.css">
 </head>
 <body>
 <div id="popup">
@@ -52,7 +53,7 @@
     <div id="examples"></div>
     <div id="example-browser">
       <div id="file-browser"></div>
-      <pre id="code-browser"><code></code></pre>
+      <div id="code-browser"></div>
     </div>
     <hr>
     <button id="copy-project-btn" onclick="copyProject()">copy example</button>
@@ -62,6 +63,7 @@
 <script src="jquery-3.1.1.min.js"></script>
 <script src="jquery.mockjax.min.js"></script>
 <script src="mocks.js"></script>
+<script src="highlight/highlight.pack.js"></script>
 <script src="definitions.js"></script>
 <script src="main.js"></script>
 </body>
